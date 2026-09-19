@@ -54,18 +54,14 @@
     </section>
     <section class="u-clearfix u-section-2" id="block-4">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="custom-expanded u-clearfix u-custom-html u-custom-html-1"><!-- Nicepage Custom HTML Element: Standalone Clipboard Copy Widget -->
+        <div class="custom-expanded u-clearfix u-custom-html u-custom-html-1">
           <div class="copy-widget-wrapper">
-            <button type="button" class="copy-trigger-btn" id="copyEmailTrigger" onclick="executeEmailCopy()"><span class="copy-label" id="copyBtnLabel">Copy Email Address</span>
-            </button>
+            <button type="button" class="copy-trigger-btn" onclick="var btn = this; navigator.clipboard.writeText('contact@aksatupadhyay.com').then(function(){ btn.textContent = 'Copied to Clipboard!'; setTimeout(function(){ btn.textContent = 'Copy Email Address'; }, 2000); }).catch(function(){ alert('contact@aksatupadhyay.com'); });"> Copy Email Address </button>
           </div>
           <style> .copy-widget-wrapper {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     width: 100%;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin: 12px 0;
   }
   .copy-trigger-btn {
     appearance: none;
@@ -73,32 +69,16 @@
     background-color: #111111;
     color: #ffffff;
     border: 1px solid #111111;
-    border-radius: 0px;
     padding: 10px 20px;
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.04em;
     cursor: pointer;
-    user-select: none;
-    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+    transition: background-color 150ms ease, color 150ms ease;
   }
   .copy-trigger-btn:hover {
     background-color: #ffffff;
     color: #111111;
-  }
-  .copy-trigger-btn:active {
-    transform: translateY(1px);
-  }
-  .copy-trigger-btn.state-success {
-    background-color: #1b5e20;
-    border-color: #1b5e20;
-    color: #ffffff;
-  }
-  .copy-trigger-btn.state-error {
-    background-color: #b71c1c;
-    border-color: #b71c1c;
-    color: #ffffff;
   } </style>
         </div>
       </div>

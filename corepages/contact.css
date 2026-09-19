@@ -47,28 +47,13 @@
 .u-section-2 .u-custom-html-1 {
   height: auto;
   min-height: 31px;
-  margin: 63px 506px 60px 471px;
+  width: 163px;
+  margin: 63px auto 60px;
 }
 
 @media (max-width: 1199px) {
   .u-section-2 .u-custom-html-1 {
-    margin-right: 406px;
-    margin-left: 371px;
     width: 239px;
-  }
-}
-
-@media (max-width: 991px) {
-  .u-section-2 .u-custom-html-1 {
-    margin-right: 296px;
-    margin-left: 261px;
-  }
-}
-
-@media (max-width: 767px) {
-  .u-section-2 .u-custom-html-1 {
-    margin-right: 206px;
-    margin-left: 171px;
   }
 }
 
