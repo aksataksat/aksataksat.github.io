@@ -1,0 +1,32 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 400px;
+}
+
+.u-section-1 .u-btn-1 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.125rem;
+  margin: 20px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-text-1 {
+  margin: 20px auto 0 0;
+}
+
+.u-section-1 .u-text-2 {
+  margin: 20px auto 0 0;
+}
+
+.u-section-1 .u-text-3 {
+  margin: 20px auto 0 0;
+}
+
+.u-section-1 .u-text-4 {
+  margin: 20px auto 60px 0;
+}
