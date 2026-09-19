@@ -58,7 +58,21 @@
   border-style: solid;
   font-size: 1.875rem;
   font-weight: 700;
-  margin: 20px auto 60px 0;
+  margin: 20px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-5 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 20px auto 20px 0;
   padding: 0;
 }
 
@@ -75,30 +89,18 @@
 
   .u-section-1 .u-btn-1 {
     margin-top: 21px;
-    margin-left: 16px;
   }
 
   .u-section-1 .u-btn-2 {
-    margin-top: 22px;
+    margin-top: 23px;
   }
 
   .u-section-1 .u-btn-3 {
     margin-top: 22px;
-    margin-left: 16px;
   }
 
   .u-section-1 .u-btn-4 {
-    margin-top: 22px;
-  }
-}
-
-@media (max-width: 767px) {
-  .u-section-1 .u-btn-1 {
-    margin-left: 0;
-  }
-
-  .u-section-1 .u-btn-3 {
-    margin-left: 0;
+    margin-top: 23px;
   }
 }
 
