@@ -1,0 +1,132 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 383px;
+}
+
+.u-section-1 .u-btn-1 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 33px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-2 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 20px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-3 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 20px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-rotation-parent-1 {
+  animation-timing-function: ease;
+  width: 326px;
+  height: 326px;
+  margin: -296px -63px 0 auto;
+}
+
+.u-section-1 .u-image-1 {
+  width: 326px;
+  height: 326px;
+  transform-origin: center center;
+  transform: translateX(-50%) translateY(-50%) rotate(180deg);
+}
+
+.u-section-1 .u-btn-4 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: -9px auto 0 0;
+  padding: 0;
+}
+
+.u-section-1 .u-btn-5 {
+  --radius: 0px;
+  --top-left-radius: 0px;
+  --top-right-radius: 0px;
+  --bottom-right-radius: 0px;
+  --bottom-left-radius: 0px;
+  background-image: none;
+  border-style: solid;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 21px auto 50px 0;
+  padding: 0;
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-rotation-parent-1 {
+    width: 409px;
+    height: 409px;
+    margin-top: -297px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 409px;
+    height: 409px;
+  }
+
+  .u-section-1 .u-btn-4 {
+    margin-top: -90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-rotation-parent-1 {
+    margin-right: -66px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 653px;
+  }
+
+  .u-section-1 .u-rotation-parent-1 {
+    width: 195px;
+    height: 195px;
+    margin-top: -275px;
+    margin-right: -50px;
+  }
+
+  .u-section-1 .u-image-1 {
+    width: 195px;
+    height: 195px;
+  }
+
+  .u-section-1 .u-btn-4 {
+    margin-top: 100px;
+  }
+}
