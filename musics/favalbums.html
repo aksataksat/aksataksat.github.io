@@ -11,7 +11,20 @@
     <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
     <meta name="generator" content="Hello">
     <link rel="icon" href="../images/favicon2.png">
-    
+    <style>
+  /* 1. Remove the locked container height */
+  .u-gallery-1,
+  .u-gallery-inner-1 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* 2. Lock every card to a strict 1:1 square ratio */
+  .u-gallery-item {
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+  }
+</style>
     
     
     
