@@ -353,4 +353,26 @@
   .u-section-1 .u-gallery-inner-1 {
     grid-template-columns: repeat(1, auto);
   }
+
+  /* Lock all album gallery items to a 1:1 square */
+.u-gallery-1 .u-gallery-item {
+  aspect-ratio: 1 / 1 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Ensure the slide container fills the square */
+.u-gallery-1 .u-back-slide {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+/* Crop rectangular covers cleanly without stretching */
+.u-gallery-1 .u-back-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
 }
