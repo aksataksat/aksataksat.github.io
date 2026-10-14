@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>timetable</title>
+    <link rel="stylesheet" href="../nicepage.css" media="screen">
+    <link rel="stylesheet" href="accountability.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../nicepage.js" defer=""></script>
+    <meta name="generator" content="Hello">
+    <link rel="icon" href="../images/favicon2.png">
+    
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "aksatupadhyay"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="timetable">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="title" content="Aksat Upadhyay">
+    <meta name="description" content="The Website of Aksat Upadhyay.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aksatupadhyay.com/">
+    <meta property="og:title" content="Aksat Upadhyay">
+    <meta property="og:description" content="The Website of Aksat Upadhyay.">
+    <meta property="og:image" content="https://aksatupadhyay.com/card.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="aksatupadhyay.com">
+    <meta property="twitter:url" content="https://aksatupadhyay.com/">
+    <meta name="twitter:title" content="Aksat Upadhyay">
+    <meta name="twitter:description" content="The Website of Aksat Upadhyay.">
+    <meta name="twitter:image" content="https://aksatupadhyay.com/card.png">
+    <meta name="referrer" content="origin">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+    <style>
+      .tt-wrap {
+        font-family: monospace, sans-serif;
+        color: #111111;
+        margin: 24px 0 48px 0;
+        line-height: 1.4;
+      }
+      .tt-wrap * { box-sizing: border-box; }
+      .var-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .var-btn {
+        border: 2px solid #111111;
+        background: #ffffff;
+        color: #111111;
+        padding: 8px 10px;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+      .var-btn.active { background: #111111; color: #ffffff; }
+      .v-title { font-size: 0.9rem; font-weight: bold; }
+      .v-sub { font-size: 0.75rem; opacity: 0.85; }
+
+      .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .stat-box {
+        border: 1px solid #111111;
+        background: #f5f5f5;
+        padding: 6px 10px;
+      }
+      .s-lbl { font-size: 0.68rem; text-transform: uppercase; color: #555555; font-weight: bold; }
+      .s-val { font-size: 0.9rem; font-weight: bold; }
+
+      /* Visual/Anti-Vision Boards Banner */
+      details.vision-boards {
+        border: 2px solid #111111;
+        margin-bottom: 16px;
+        background: #ffffff;
+      }
+      details.vision-boards summary {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        background: #f5f5f5;
+        list-style: none;
+        user-select: none;
+      }
+      details.vision-boards summary::-webkit-details-marker { display: none; }
+      details.vision-boards[open] summary { border-bottom: 1px solid #111111; }
+      
+      .boards-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        padding: 14px;
+        background: #ffffff;
+      }
+      @media (max-width: 768px) {
+        .boards-inner { grid-template-columns: 1fr; }
+      }
+      .board-col {
+        border: 1px dashed #555555;
+        padding: 10px;
+        background: #fdfdfd;
+      }
+      .board-title {
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid #111111;
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .board-img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #111111;
+        display: block;
+      }
+
+      /* Collapsible Dropdown for Gantt Box */
+      details.gantt-dropdown {
+        border: 2px solid #111111;
+        margin-bottom: 16px;
+        background: #ffffff;
+      }
+      details.gantt-dropdown summary {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        background: #f5f5f5;
+        list-style: none;
+        user-select: none;
+      }
+      details.gantt-dropdown summary::-webkit-details-marker {
+        display: none;
+      }
+      details.gantt-dropdown[open] summary {
+        border-bottom: 1px solid #111111;
+      }
+      .gantt-inner {
+        padding: 10px;
+      }
+      .time-axis {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        font-weight: bold;
+        border-bottom: 1px solid #cccccc;
+        padding-bottom: 4px;
+        margin-bottom: 6px;
+      }
+      .g-row { display: flex; align-items: center; margin-bottom: 5px; }
+      .g-lbl { width: 110px; flex-shrink: 0; font-size: 0.72rem; font-weight: bold; }
+      .g-track { flex-grow: 1; height: 22px; border: 1px solid #111111; display: flex; background: #eeeeee; }
+      .g-seg {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: bold;
+        color: #ffffff;
+        border-right: 1px solid #ffffff;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .g-seg.rout { background: #d4d4d8; color: #111111; }
+      .g-seg.dpp { background: #1d4ed8; }
+      .g-seg.test { background: #b91c1c; }
+      .g-seg.pyq { background: #0f766e; }
+      .g-seg.rev { background: #6d28d9; }
+      .g-seg.lec { background: #15803d; }
+      .g-seg.empty { background: #ffffff; color: #888888; }
+
+      .legend { display: flex; gap: 12px; font-size: 0.72rem; margin-top: 6px; flex-wrap: wrap; font-weight: bold; }
+      .sw { width: 10px; height: 10px; border: 1px solid #111111; display: inline-block; margin-right: 4px; }
+
+      .layout-2col {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 768px) {
+        .layout-2col { grid-template-columns: 1fr; }
+        .g-lbl { width: 80px; font-size: 0.65rem; }
+      }
+      .schedule-list { display: flex; flex-direction: column; gap: 5px; }
+      .s-row {
+        display: grid;
+        grid-template-columns: 28px 105px 1fr 60px;
+        align-items: center;
+        border: 1px solid #111111;
+        padding: 7px 10px;
+        font-size: 0.82rem;
+        cursor: pointer;
+        background: #ffffff;
+      }
+      .s-row.rout-row { background: #f5f5f5; color: #555555; }
+      .s-row.selected { background: #111111; color: #ffffff; }
+      .s-time, .s-task { font-weight: bold; }
+      .s-dur { text-align: right; font-size: 0.75rem; font-weight: bold; }
+
+      .side-panel { display: flex; flex-direction: column; gap: 12px; }
+      .card { border: 2px solid #111111; padding: 12px; background: #f5f5f5; }
+      .card-title { font-size: 0.85rem; font-weight: bold; border-bottom: 1px solid #111111; padding-bottom: 5px; margin-bottom: 8px; text-transform: uppercase; }
+      .card-line { font-size: 0.82rem; margin-bottom: 6px; }
+      .btn-clear {
+        margin-top: 8px;
+        border: 1px solid #111111;
+        background: #ffffff;
+        padding: 5px 10px;
+        font-family: inherit;
+        font-size: 0.75rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+</head>
+  <body data-path-to-root="../" data-include-products="false" class="u-body u-clearfix u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="header"><div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-sm u-valign-middle-xl u-sheet-1">
+        <h1 class="u-align-left u-custom-font u-text u-text-font u-text-1">
+          <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-grey-90 u-btn-1" href="../" data-page-id="263962321" title="Home">Aksat Upadhyay. </a>
+        </h1>
+      </div></header>
+
+    <section class="u-clearfix u-section-1" id="block-8">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="tt-wrap">
+
+          <!-- COLLAPSIBLE VISION & ANTI-VISION BOARDS -->
+          <details class="vision-boards" id="boards-details">
+            <summary id="boards-summary">[+] Visual Boards (The Choice)</summary>
+            <div class="boards-inner">
+              <div class="board-col">
+                <div class="board-title">Anti-Vision: Failure, Blades of Grass</div>
+                <img class="board-img" src="../images/AVB.png" alt="Anti-Vision Board">
+              </div>
+              <div class="board-col">
+                <div class="board-title">Vision: Blades of Grass</div>
+                <img class="board-img" src="../images/VB.png" alt="Vision Board">
+              </div>
+            </div>
+          </details>
+
+          <!-- VARIATION BUTTONS -->
+          <div class="var-bar">
+            <button class="var-btn active" onclick="setVar(0, this)">
+              <div class="v-title">05:00 Standard</div>
+              <div class="v-sub">6h 30m | Stop 15:05</div>
+            </button>
+            <button class="var-btn" onclick="setVar(1, this)">
+              <div class="v-title">05:00 Lower</div>
+              <div class="v-sub">5h 50m | Stop 14:25</div>
+            </button>
+            <button class="var-btn" onclick="setVar(2, this)">
+              <div class="v-title">05:30 (-30m)</div>
+              <div class="v-sub">6h 00m | Drop TB</div>
+            </button>
+            <button class="var-btn" onclick="setVar(3, this)">
+              <div class="v-title">06:00 (-60m)</div>
+              <div class="v-sub">5h 30m | Drop TB, -30m PYQ</div>
+            </button>
+            <button class="var-btn" onclick="setVar(4, this)">
+              <div class="v-title">06:15 (-75m)</div>
+              <div class="v-sub">5h 15m | Drop TB, -45m PYQ</div>
+            </button>
+          </div>
+
+          <!-- SUMMARY METRICS -->
+          <div class="stats-bar" id="stats-bar"></div>
+
+          <!-- COLLAPSIBLE VISUAL TIMELINE DROPDOWN -->
+          <details class="gantt-dropdown" id="gantt-details">
+            <summary id="gantt-summary">[+] Visual Timeline Comparison (05:00 – 15:05)</summary>
+            <div class="gantt-inner">
+              <div class="time-axis">
+                <span>05:00</span><span>06:00</span><span>07:35</span><span>08:45</span><span>10:00</span><span>11:00</span><span>12:20</span><span>14:00</span><span>15:05</span>
+              </div>
+              <div id="gantt-rows"></div>
+              <div class="legend">
+                <span><i class="sw" style="background:#1d4ed8"></i>DPP</span>
+                <span><i class="sw" style="background:#b91c1c"></i>Test</span>
+                <span><i class="sw" style="background:#0f766e"></i>PYQ</span>
+                <span><i class="sw" style="background:#6d28d9"></i>Rev</span>
+                <span><i class="sw" style="background:#15803d"></i>Lec</span>
+                <span><i class="sw" style="background:#d4d4d8"></i>Routine</span>
+              </div>
+            </div>
+          </details>
+
+          <!-- SCHEDULE & AUDIT -->
+          <div class="layout-2col">
+            <div class="schedule-list" id="schedule-list"></div>
+
+            <div class="side-panel">
+              <div class="card">
+                <div class="card-title" id="ins-title">Block Rule</div>
+                <div class="card-line" id="ins-time">-</div>
+                <div class="card-line" id="ins-note">-</div>
+              </div>
+
+              <div class="card" style="background:#ffffff;">
+                <div class="card-title">15:05 Gate</div>
+                <div class="card-line" id="gate-text" style="font-weight:bold;"></div>
+                <button class="btn-clear" onclick="clearChecks()">Reset Checks</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<script>
+const data = [
+  {
+    name: "05:00 Std", wake: "05:00", stop: "15:05", total: "6h 30m", dpp: "75m", test: "70m (TA+TB)", pyq: "120m / 25m Rev", lec: "120m", rule: "Daily loop.",
+    blocks: [
+      { s: "05:00", e: "05:10", d: 10, t: "rout", st: false, n: "Wash & Sit", note: "10m max. Desk prepped night before." },
+      { s: "05:10", e: "06:25", d: 75, t: "dpp",  st: true,  n: "DPPs", note: "Yesterday's lecture DPPs." },
+      { s: "06:25", e: "06:55", d: 30, t: "test", st: true,  n: "Test A (Fixed)", note: "Mandatory 30m test." },
+      { s: "06:55", e: "07:25", d: 30, t: "test", st: true,  n: "Test B (Flex)", note: "Secondary 30m test." },
+      { s: "07:25", e: "07:35", d: 10, t: "test", st: true,  n: "Test Audit", note: "Score & queue PYQs for 08:45." },
+      { s: "07:35", e: "08:00", d: 25, t: "rout", st: false, n: "Bath & Prayers", note: "Hard anchor." },
+      { s: "08:00", e: "08:45", d: 45, t: "rout", st: false, n: "Breakfast", note: "Back at desk by 08:45." },
+      { s: "08:45", e: "10:00", d: 75, t: "pyq",  st: true,  n: "PYQs Pt 1", note: "Target morning test errors." },
+      { s: "10:00", e: "10:15", d: 15, t: "rout", st: false, n: "Break", note: "15m reset." },
+      { s: "10:15", e: "11:00", d: 45, t: "pyq",  st: true,  n: "PYQs Pt 2", note: "Total PYQs: 120m." },
+      { s: "11:00", e: "11:25", d: 25, t: "rev",  st: true,  n: "Revision", note: "Revise for tomorrow's test." },
+      { s: "11:25", e: "12:20", d: 55, t: "lec",  st: true,  n: "Lecture Pt 1", note: "First 55m before workout." },
+      { s: "12:20", e: "13:00", d: 40, t: "rout", st: false, n: "Workout", note: "Hard anchor." },
+      { s: "13:00", e: "14:00", d: 60, t: "rout", st: false, n: "Lunch", note: "Hard anchor." },
+      { s: "14:00", e: "15:05", d: 65, t: "lec",  st: true,  n: "Lecture Pt 2", note: "Final task. Feeds tomorrow's DPP." }
+    ]
+  },
+  {
+    name: "05:00 Low", wake: "05:00", stop: "14:25", total: "5h 50m", dpp: "75m", test: "70m (TA+TB)", pyq: "105m / 30m Rev", lec: "90m", rule: "Short day.",
+    blocks: [
+      { s: "05:00", e: "05:10", d: 10, t: "rout", st: false, n: "Wash & Sit", note: "10m max." },
+      { s: "05:10", e: "06:25", d: 75, t: "dpp",  st: true,  n: "DPPs", note: "Yesterday's lecture DPPs." },
+      { s: "06:25", e: "06:55", d: 30, t: "test", st: true,  n: "Test A (Fixed)", note: "Mandatory 30m test." },
+      { s: "06:55", e: "07:25", d: 30, t: "test", st: true,  n: "Test B (Flex)", note: "Secondary 30m test." },
+      { s: "07:25", e: "07:35", d: 10, t: "test", st: true,  n: "Test Audit", note: "Score & queue PYQs." },
+      { s: "07:35", e: "08:00", d: 25, t: "rout", st: false, n: "Bath & Prayers", note: "Hard anchor." },
+      { s: "08:00", e: "08:45", d: 45, t: "rout", st: false, n: "Breakfast", note: "Hard anchor." },
+      { s: "08:45", e: "10:00", d: 75, t: "pyq",  st: true,  n: "PYQs Pt 1", note: "Error correction." },
+      { s: "10:00", e: "10:15", d: 15, t: "rout", st: false, n: "Break", note: "15m reset." },
+      { s: "10:15", e: "10:45", d: 30, t: "pyq",  st: true,  n: "PYQs Pt 2", note: "Lower bound: 105m total." },
+      { s: "10:45", e: "11:15", d: 30, t: "rev",  st: true,  n: "Revision", note: "30m revision for next test." },
+      { s: "11:15", e: "12:20", d: 65, t: "lec",  st: true,  n: "Lecture Pt 1", note: "65m pre-workout." },
+      { s: "12:20", e: "13:00", d: 40, t: "rout", st: false, n: "Workout", note: "Hard anchor." },
+      { s: "13:00", e: "14:00", d: 60, t: "rout", st: false, n: "Lunch", note: "Hard anchor." },
+      { s: "14:00", e: "14:25", d: 25, t: "lec",  st: true,  n: "Lecture Pt 2", note: "25m left. Done at 14:25." }
+    ]
+  },
+  {
+    name: "05:30 Late", wake: "05:30", stop: "15:05", total: "6h 00m", dpp: "75m", test: "40m (TA Only)", pyq: "120m / 25m Rev", lec: "120m", rule: "Safe damage control.",
+    blocks: [
+      { s: "05:00", e: "05:30", d: 30, t: "empty",st: false, n: "Late (-30m)", note: "Absorbed by dropping Test B." },
+      { s: "05:30", e: "05:40", d: 10, t: "rout", st: false, n: "Wash & Sit", note: "At desk by 05:40." },
+      { s: "05:40", e: "06:55", d: 75, t: "dpp",  st: true,  n: "DPPs", note: "Full 75m preserved." },
+      { s: "06:55", e: "07:25", d: 30, t: "test", st: true,  n: "Test A (Fixed)", note: "Test B dropped." },
+      { s: "07:25", e: "07:35", d: 10, t: "test", st: true,  n: "Test Audit", note: "Realigned at 07:35." },
+      { s: "07:35", e: "08:00", d: 25, t: "rout", st: false, n: "Bath & Prayers", note: "Anchor intact." },
+      { s: "08:00", e: "08:45", d: 45, t: "rout", st: false, n: "Breakfast", note: "Anchor intact." },
+      { s: "08:45", e: "10:00", d: 75, t: "pyq",  st: true,  n: "PYQs Pt 1", note: "Full 75m." },
+      { s: "10:00", e: "10:15", d: 15, t: "rout", st: false, n: "Break", note: "15m reset." },
+      { s: "10:15", e: "11:00", d: 45, t: "pyq",  st: true,  n: "PYQs Pt 2", note: "Full 120m total." },
+      { s: "11:00", e: "11:25", d: 25, t: "rev",  st: true,  n: "Revision", note: "Next test revision." },
+      { s: "11:25", e: "12:20", d: 55, t: "lec",  st: true,  n: "Lecture Pt 1", note: "55m pre-workout." },
+      { s: "12:20", e: "13:00", d: 40, t: "rout", st: false, n: "Workout", note: "Anchor intact." },
+      { s: "13:00", e: "14:00", d: 60, t: "rout", st: false, n: "Lunch", note: "Anchor intact." },
+      { s: "14:00", e: "15:05", d: 65, t: "lec",  st: true,  n: "Lecture Pt 2", note: "Done 15:05." }
+    ]
+  },
+  {
+    name: "06:00 Late", wake: "06:00", stop: "15:05", total: "5h 30m", dpp: "75m", test: "30m (TA@08:45)", pyq: "90m / 25m Rev", lec: "120m", rule: "Focus back.",
+    blocks: [
+      { s: "05:00", e: "06:00", d: 60, t: "empty",st: false, n: "Late (-60m)", note: "Drop TB (-30m) & trim PYQ (-30m)." },
+      { s: "06:00", e: "06:10", d: 10, t: "rout", st: false, n: "Wash & Sit", note: "At desk by 06:10." },
+      { s: "06:10", e: "07:25", d: 75, t: "dpp",  st: true,  n: "DPPs", note: "Full 75m preserved." },
+      { s: "07:25", e: "07:35", d: 10, t: "rev",  st: true,  n: "Formula Scan", note: "Prep for 08:45 Test A." },
+      { s: "07:35", e: "08:00", d: 25, t: "rout", st: false, n: "Bath & Prayers", note: "Anchor intact." },
+      { s: "08:00", e: "08:45", d: 45, t: "rout", st: false, n: "Breakfast", note: "Anchor intact." },
+      { s: "08:45", e: "09:15", d: 30, t: "test", st: true,  n: "Test A (Shifted)", note: "Mandatory 30m test." },
+      { s: "09:15", e: "10:00", d: 45, t: "pyq",  st: true,  n: "PYQs Pt 1", note: "Audit + 45m PYQs." },
+      { s: "10:00", e: "10:15", d: 15, t: "rout", st: false, n: "Break", note: "15m reset." },
+      { s: "10:15", e: "11:00", d: 45, t: "pyq",  st: true,  n: "PYQs Pt 2", note: "90m total PYQ. Realigned." },
+      { s: "11:00", e: "11:25", d: 25, t: "rev",  st: true,  n: "Revision", note: "Next test revision." },
+      { s: "11:25", e: "12:20", d: 55, t: "lec",  st: true,  n: "Lecture Pt 1", note: "55m pre-workout." },
+      { s: "12:20", e: "13:00", d: 40, t: "rout", st: false, n: "Workout", note: "Anchor intact." },
+      { s: "13:00", e: "14:00", d: 60, t: "rout", st: false, n: "Lunch", note: "Anchor intact." },
+      { s: "14:00", e: "15:05", d: 65, t: "lec",  st: true,  n: "Lecture Pt 2", note: "Done 15:05." }
+    ]
+  },
+  {
+    name: "06:15 Late", wake: "06:15", stop: "15:05", total: "5h 15m", dpp: "75m (70+5)", test: "35m (TA+Aud)", pyq: "75m / 30m Rev", lec: "120m", rule: "Damage limits.",
+    blocks: [
+      { s: "05:00", e: "06:15", d: 75, t: "empty",st: false, n: "Late (-75m)", note: "Drop TB (-30m) & trim PYQ (-45m)." },
+      { s: "06:15", e: "06:25", d: 10, t: "rout", st: false, n: "Wash & Sit", note: "At desk by 06:25." },
+      { s: "06:25", e: "07:35", d: 70, t: "dpp",  st: true,  n: "DPPs Pt 1", note: "70m before bath." },
+      { s: "07:35", e: "08:00", d: 25, t: "rout", st: false, n: "Bath & Prayers", note: "Anchor intact." },
+      { s: "08:00", e: "08:45", d: 45, t: "rout", st: false, n: "Breakfast", note: "Anchor intact." },
+      { s: "08:45", e: "08:50", d: 5,  t: "dpp",  st: true,  n: "DPPs Pt 2", note: "Final 5m (75m total)." },
+      { s: "08:50", e: "09:25", d: 35, t: "test", st: true,  n: "Test A + Audit", note: "30m Test A + 5m audit." },
+      { s: "09:25", e: "10:00", d: 35, t: "pyq",  st: true,  n: "PYQs Pt 1", note: "35m error PYQs." },
+      { s: "10:00", e: "10:15", d: 15, t: "rout", st: false, n: "Break", note: "15m reset." },
+      { s: "10:15", e: "10:55", d: 40, t: "pyq",  st: true,  n: "PYQs Pt 2", note: "75m total PYQs." },
+      { s: "10:55", e: "11:25", d: 30, t: "rev",  st: true,  n: "Revision", note: "Realigned at 11:25." },
+      { s: "11:25", e: "12:20", d: 55, t: "lec",  st: true,  n: "Lecture Pt 1", note: "55m pre-workout." },
+      { s: "12:20", e: "13:00", d: 40, t: "rout", st: false, n: "Workout", note: "Anchor intact." },
+      { s: "13:00", e: "14:00", d: 60, t: "rout", st: false, n: "Lunch", note: "Anchor intact." },
+      { s: "14:00", e: "15:05", d: 65, t: "lec",  st: true,  n: "Lecture Pt 2", note: "Done 15:05." }
+    ]
+  }
+];
+
+let curV = parseInt(localStorage.getItem('tt_var') || '0', 10);
+let checks = JSON.parse(localStorage.getItem('tt_checks') || '{}');
+
+document.getElementById('boards-details').addEventListener('toggle', function() {
+  document.getElementById('boards-summary').textContent =
+    (this.open ? '[-] ' : '[+] ') + 'Visual Boards (The Choice)';
+});
+
+document.getElementById('gantt-details').addEventListener('toggle', function() {
+  document.getElementById('gantt-summary').textContent =
+    (this.open ? '[-] ' : '[+] ') + 'Visual Timeline Comparison (05:00 – 15:05)';
+});
+
+function drawGantt() {
+  const wrap = document.getElementById('gantt-rows');
+  wrap.innerHTML = '';
+  const span = 605;
+  data.forEach((v, vIdx) => {
+    const row = document.createElement('div');
+    row.className = 'g-row';
+    row.innerHTML = `<div class="g-lbl" style="${vIdx===curV?'text-decoration:underline':''}">${v.name}</div>`;
+    const track = document.createElement('div');
+    track.className = 'g-track';
+    let used = 0;
+    v.blocks.forEach((b, bIdx) => {
+      const seg = document.createElement('div');
+      seg.className = `g-seg ${b.t}`;
+      seg.style.width = `${(b.d / span) * 100}%`;
+      seg.title = `${b.s}–${b.e}: ${b.n}`;
+      if (b.d >= 25) seg.textContent = b.t === 'rout' ? 'R' : b.t === 'empty' ? '—' : b.n.split(' ')[0];
+      seg.onclick = () => setVar(vIdx, document.querySelectorAll('.var-btn')[vIdx], bIdx);
+      track.appendChild(seg);
+      used += b.d;
+    });
+    if (used < span) {
+      const rem = document.createElement('div');
+      rem.className = 'g-seg empty';
+      rem.style.width = `${((span - used) / span) * 100}%`;
+      rem.textContent = 'FREE';
+      track.appendChild(rem);
+    }
+    row.appendChild(track);
+    wrap.appendChild(row);
+  });
+}
+
+function setVar(idx, btn, bIdx = 1) {
+  curV = idx;
+  localStorage.setItem('tt_var', idx);
+  document.querySelectorAll('.var-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  const v = data[idx];
+
+  document.getElementById('stats-bar').innerHTML = `
+    <div class="stat-box"><div class="s-lbl">Window</div><div class="s-val">${v.wake}–${v.stop}</div></div>
+    <div class="stat-box"><div class="s-lbl">Study</div><div class="s-val">${v.total}</div></div>
+    <div class="stat-box"><div class="s-lbl">DPP</div><div class="s-val">${v.dpp}</div></div>
+    <div class="stat-box"><div class="s-lbl">Test</div><div class="s-val">${v.test}</div></div>
+    <div class="stat-box"><div class="s-lbl">PYQ / Rev</div><div class="s-val">${v.pyq}</div></div>
+    <div class="stat-box"><div class="s-lbl">Lecture</div><div class="s-val">${v.lec}</div></div>
+  `;
+
+  const list = document.getElementById('schedule-list');
+  list.innerHTML = '';
+  v.blocks.forEach((b, i) => {
+    const row = document.createElement('div');
+    row.className = `s-row ${!b.st ? 'rout-row' : ''} ${i === bIdx ? 'selected' : ''}`;
+    const k = `${idx}-${i}`;
+    const cb = b.st ? `<input type="checkbox" ${checks[k] ? 'checked' : ''} onclick="event.stopPropagation(); toggleCheck('${k}', this.checked)">` : `—`;
+    row.innerHTML = `<div>${cb}</div><div class="s-time">${b.s}–${b.e}</div><div class="s-task">${b.n}</div><div class="s-dur">${b.d}m</div>`;
+    row.onclick = () => showBlock(i);
+    list.appendChild(row);
+  });
+
+  drawGantt();
+  showBlock(bIdx);
+  evalGate();
+}
+
+function showBlock(i) {
+  const b = data[curV].blocks[i];
+  document.querySelectorAll('.s-row').forEach((r, idx) => r.classList.toggle('selected', idx === i));
+  document.getElementById('ins-title').textContent = b.n;
+  document.getElementById('ins-time').textContent = `${b.s} – ${b.e} (${b.d}m)`;
+  document.getElementById('ins-note').textContent = b.note;
+}
+
+function toggleCheck(k, val) {
+  checks[k] = val;
+  localStorage.setItem('tt_checks', JSON.stringify(checks));
+  evalGate();
+}
+
+function clearChecks() {
+  checks = {};
+  localStorage.removeItem('tt_checks');
+  setVar(curV, document.querySelectorAll('.var-btn')[curV], 1);
+}
+
+function evalGate() {
+  const v = data[curV];
+  let req = 0, done = 0;
+  v.blocks.forEach((b, i) => {
+    if (b.st) {
+      req += b.d;
+      if (checks[`${curV}-${i}`]) done += b.d;
+    }
+  });
+  const rem = req - done;
+  const g = document.getElementById('gate-text');
+  g.innerHTML = rem === 0
+    ? `${done}/${req}m (100%) — COMPLETE. Leisure unlocked.`
+    : `${done}/${req}m (${rem}m left) — INCOMPLETE. Unresolved task.`;
+}
+
+setVar(curV, document.querySelectorAll('.var-btn')[curV], 1);
+</script>
+</body></html>
