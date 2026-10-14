@@ -237,6 +237,11 @@
         </h1>
       </div></header>
 
+    <!-- HIDDEN AUDIO REWARD (Change src to your audio path) -->
+    <audio id="reward-audio" preload="auto">
+      <source src="Rain.mp3" type="audio/mpeg">
+    </audio>
+
     <section class="u-clearfix u-section-1" id="block-8">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="tt-wrap">
@@ -431,6 +436,7 @@ const data = [
 
 let curV = parseInt(localStorage.getItem('tt_var') || '0', 10);
 let checks = JSON.parse(localStorage.getItem('tt_checks') || '{}');
+let audioPlayed = false;
 
 document.getElementById('boards-details').addEventListener('toggle', function() {
   document.getElementById('boards-summary').textContent =
@@ -524,6 +530,12 @@ function toggleCheck(k, val) {
 function clearChecks() {
   checks = {};
   localStorage.removeItem('tt_checks');
+  audioPlayed = false;
+  const audio = document.getElementById('reward-audio');
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
   setVar(curV, document.querySelectorAll('.var-btn')[curV], 1);
 }
 
@@ -538,9 +550,19 @@ function evalGate() {
   });
   const rem = req - done;
   const g = document.getElementById('gate-text');
-  g.innerHTML = rem === 0
-    ? `${done}/${req}m (100%) — COMPLETE. Leisure unlocked.`
-    : `${done}/${req}m (${rem}m left) — INCOMPLETE. Unresolved task.`;
+  const audio = document.getElementById('reward-audio');
+
+  if (rem === 0 && req > 0) {
+    g.innerHTML = `${done}/${req}m (100%) — COMPLETE. Leisure unlocked.`;
+    if (!audioPlayed && audio) {
+      audio.currentTime = 0;
+      audio.play().catch(e => console.log('Audio autoplay prevented:', e));
+      audioPlayed = true;
+    }
+  } else {
+    g.innerHTML = `${done}/${req}m (${rem}m left) — INCOMPLETE. Unresolved task.`;
+    audioPlayed = false;
+  }
 }
 
 setVar(curV, document.querySelectorAll('.var-btn')[curV], 1);
